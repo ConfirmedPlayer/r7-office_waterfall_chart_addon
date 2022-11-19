@@ -3,7 +3,7 @@
 
 
 # Обзор аддона на YouTube (рекомендую к просмотру) (для Slider AI):
-https://youtube.com/ссылка
+https://youtu.be/gTWzZk9TnDA
 
 
 ## Особенности

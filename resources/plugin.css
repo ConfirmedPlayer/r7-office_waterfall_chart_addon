@@ -1,0 +1,58 @@
+iframe {
+  overflow: scroll;
+  height: 80%;
+  border: 1px solid black;
+}
+
+
+body, html
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  margin: 0;
+}
+
+.wrapper
+{
+  display:block;
+  margin:0 auto;
+  padding: 20px;
+  background:#fff;
+  border-radius:4px;
+}
+
+canvas
+{
+  background:#fff;
+  width: 600px;
+  height: 400px;
+}
+
+h1
+{
+  font-family: Roboto, sans-serif;
+  color: #fff;
+  font-weight:200;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px;
+  margin-left: 100px;
+}
+#months_textboxes
+{
+  margin-right: -200px;
+}

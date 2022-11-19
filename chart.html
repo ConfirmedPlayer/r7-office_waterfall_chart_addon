@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterfall Chart</title>
+
+    	<script type="text/javascript" src="../v1/plugins.js"></script>
+	<script type="text/javascript" src="../v1/plugins-ui.js"></script>
+	<link rel="stylesheet" href="../v1/plugins.css">
+	
+	<script src="scripts/chart.min.js"></script>
+
+	<script defer type="text/javascript" src="scripts/plugin.js"></script>
+	<link rel="stylesheet" href="resources/plugin.css">
+
+    <script defer type="text/javascript">
+        var data_was_str = [];
+        var data_now_str = [];
+
+        var data_was = [];
+        var data_now = [];
+
+        function parse_values()
+        {
+            data_was_str.length = 0;
+            data_now_str.length = 0;
+
+            data_was.length = 0;
+            data_now.length = 0;
+
+            data_was_str.push(document.getElementById('jan_input_start').value);
+            data_now_str.push(document.getElementById('jan_input_end').value);
+
+            data_was_str.push(document.getElementById('feb_input_start').value);
+            data_now_str.push(document.getElementById('feb_input_end').value);
+
+            data_was_str.push(document.getElementById('mar_input_start').value);
+            data_now_str.push(document.getElementById('mar_input_end').value);
+
+            data_was_str.push(document.getElementById('apr_input_start').value);
+            data_now_str.push(document.getElementById('apr_input_end').value);
+
+            data_was_str.push(document.getElementById('may_input_start').value);
+            data_now_str.push(document.getElementById('may_input_end').value);
+
+            data_was_str.push(document.getElementById('jun_input_start').value);
+            data_now_str.push(document.getElementById('jun_input_end').value);
+
+            data_was_str.push(document.getElementById('jul_input_start').value);
+            data_now_str.push(document.getElementById('jul_input_end').value);
+
+            data_was_str.push(document.getElementById('aug_input_start').value);
+            data_now_str.push(document.getElementById('aug_input_end').value);
+
+            data_was_str.push(document.getElementById('sep_input_start').value);
+            data_now_str.push(document.getElementById('sep_input_end').value);
+
+            data_was_str.push(document.getElementById('oct_input_start').value);
+            data_now_str.push(document.getElementById('oct_input_end').value);
+
+            data_was_str.push(document.getElementById('nov_input_start').value);
+            data_now_str.push(document.getElementById('nov_input_end').value);
+
+            data_was_str.push(document.getElementById('dec_input_start').value);
+            data_now_str.push(document.getElementById('dec_input_end').value);
+
+            data_was_str.forEach(str => {
+            data_was.push(Number(str));
+            });
+            data_now_str.forEach(str => {
+                data_now.push(Number(str));
+            });
+        }
+    </script>
+</head>
+<body onload="parse_values(); update_chart(data_was, data_now);">
+
+    <div id="months_textboxes">
+        <div>
+            <input type="text" value="100" placeholder="Начало (Январь)" id="jan_input_start"/>
+            <input type="text" value="200" placeholder="Конец (Январь)" id="jan_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="200" placeholder="Начало (Февраль)" id="feb_input_start"/>
+            <input type="text" value="100" placeholder="Конец (Февраль)" id="feb_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="175" placeholder="Начало (Март)" id="mar_input_start"/>
+            <input type="text" value="25" placeholder="Конец (Март)" id="mar_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="125" placeholder="Начало (Апрель)" id="apr_input_start"/>
+            <input type="text" value="50" placeholder="Конец (Апрель)" id="apr_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="125" placeholder="Начало (Май)" id="may_input_start"/>
+            <input type="text" value="80" placeholder="Конец (Май)" id="may_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="165" placeholder="Начало (Июнь)" id="jun_input_start"/>
+            <input type="text" value="40" placeholder="Конец (Июнь)" id="jun_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="165" placeholder="Начало (Июль)" id="jul_input_start"/>
+            <input type="text" value="60" placeholder="Конец (Июль)" id="jul_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="225" placeholder="Начало (Август)" id="aug_input_start"/>
+            <input type="text" value="100" placeholder="Конец (Август)" id="aug_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="205" placeholder="Начало (Сентябрь)" id="sep_input_start"/>
+            <input type="text" value="120" placeholder="Конец (Сентябрь)" id="sep_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="205" placeholder="Начало (Октябрь)" id="oct_input_start"/>
+            <input type="text" value="200" placeholder="Конец (Октябрь)" id="oct_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="345" placeholder="Начало (Ноябрь)" id="nov_input_start"/>
+            <input type="text" value="60" placeholder="Конец (Ноябрь)" id="nov_input_end"/>
+        </div>
+        <div>
+            <input type="text" value="245" placeholder="Начало (Декабрь)" id="dec_input_start"/>
+            <input type="text" value="100" placeholder="Конец (Декабрь)" id="dec_input_end"/>
+        </div>
+
+        <div>
+            <button type="button" onclick="parse_values(); update_chart(data_was, data_now);">Применить</button>
+        </div>
+
+
+        <div class="wrapper" id="chart_wrapper">
+            <canvas id="main_chart"></canvas>
+        </div>
+
+</body>
+</html>

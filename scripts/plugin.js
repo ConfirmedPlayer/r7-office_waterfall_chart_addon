@@ -81,7 +81,7 @@ function update_chart(data_was, data_now)
 		if (id == 0)
 		{
 			var _info = window.Asc.plugin.info;
-			var _method = (_info.objectId === undefined) ? 'AddOleObject' : 'EditOleObject';
+			var _method = (_info.objectId === undefined) ? 'AddOleObject' : 'EditOleObject'; // выбор метода: создание или редактирование OLE-объекта
 
 			var canvas = document.getElementById('chart_frame').contentDocument.getElementById('main_chart');
 			var data = canvas.toDataURL('image/png', 1);

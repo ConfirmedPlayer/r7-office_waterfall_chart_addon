@@ -49,10 +49,24 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 20px;
-  margin-left: 100px;
+  margin: 8px;
+  margin-left: 60px;
 }
+
+input
+{
+  width: 120px;
+}
+
 #months_textboxes
 {
-  margin-right: -200px;
+  position: fixed;
+  top: 250px;
+  left: 0;
+}
+
+#chart_wrapper
+{
+  position: fixed;
+  bottom: 0;
 }
